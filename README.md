@@ -5,6 +5,9 @@
     Contains the code for solving tasks performed during student laboratory work on programming
      •  Sorting methods tasks
      •  Recursion tasks
+     •  Arrays
+     •  Tuples 
+     •  Collections
 
 ## Screenshot
 
