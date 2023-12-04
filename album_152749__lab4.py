@@ -30,24 +30,21 @@ def brackets_validator(arr):
     # (d) Jeżeli nie to dopisz do listy osób wychodzących z poczty.
 ######################################################
 
+from collections import deque
+
+
 def post_line(arr):
-    out = []
-    out2 = []
+    que = deque()
+    que_arr = []
 
-    for i in range(len(arr)):
-        if not arr[i][1]:
-            out.append(arr[i][0])
+    for i in arr:
+        que.append([i, False])
+
+    while que:
+        person = que.popleft()
+        if person[0][1] and not person[1]:
+            que.append([person[0], True])
         else:
-            out2.append(arr[i][0])
+            que_arr.append(person[0][0])
+    return que_arr
 
-    print(out+out2)
-
-
-line = [
-    ('Grazyna', True),
-    ('Laura', False),
-    ('Bartek', False),
-    ('Andrzej', True),
-    ('Wiesiek', False)
-]
-post_line(line)
