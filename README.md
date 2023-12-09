@@ -19,7 +19,7 @@
     1. Całkowicie losowe podanie piętra początkowego i piętra końcowego. Przykładowo, można to zaimplementować
     w ten sposób (należy odpowiednio wcześniej zaimportować bibliotekę random):
     
-    ```python
+```python
     def script1():
     start = random.randint(0, 10)
     finish = random.randint(0, 10)
@@ -31,12 +31,12 @@
     
     start, finish = script1()
 
-    ```
+```
 
     2. Symulujemy przypadek kiedy ludzie jadą do pracy: 70% ludzi zjeżdża z piętr powyżej 4 na parter.
     W pozostałych 30% wypadków stosujemy scenariusz 1. Przykładowa implementacja:
 
-    ```python
+```python
     def script2():
     if random.random() < 0.7:
     start = random.randint(4, 10)
@@ -47,12 +47,12 @@
     
     start, finish = script2()
 
-    ```
+```
 
     3. Symulujemy przypadek kiedy ludzie wracają z pracy/zakupów: 70% ludzi jedzie z parteru (0) na dowolne inne
     piętro. W pozostałych 30% wypadków stosujemy scenariusz 1. Przykładowa implementacja:
 
-    ```python
+```python
     def script3():
     if random.random() < 0.7:
     start = 0
@@ -63,18 +63,18 @@
     
     start, finish = script3()
 
-    ```
+```
 
     W kolejnych sekcjach są przedstawione 3 algorytmy (oznaczone liczbami rzymskimi) poruszania się windy
     które należy przebadać. Każdy algorytm należy przebadać w każdym z 3 scenariuszy.
     (I) Winda zostaje na tym piętrze na którym skończyła swój ruch.
     Rozpatrzymy przykład dla 3 przejazdów windy, w tabeli poniżej podane piętra początkowe oraz końcowe:
 
-    | Start | Finish |
-    | :----:| :----: |
-    | 0     |  7     |
-    | 2     |  5     |
-    | 6     |  1     |
+| Start | Finish |
+| :----:| :----: |
+| 0     |  7     |
+| 2     |  5     |
+| 6     |  1     |
 
     Przy takim losowaniu w tym algorytmie winda będzie zatrzymywać się na następujących piętrach:
 
@@ -102,12 +102,12 @@
     wybranego scenariusz i wybranego algorytmu. Proszę skonwertować te wartości w kilometry i zaokrąglić do dwóch
     wartości po przycinku. Wartości podane w tabeli są przykładowe i nie należy na nie się wzorować.
     
-    | Scenariusz    | Algorytm I | Algorytm II | Algorytm III |
-    |    :----:     |    :----:  |    :----:   |     :----:   |
-    | Scenariusz 1  |  10.21 km  |   8.78 km   |    7.38 km   |
-    | Scenariusz 2  |     ...    |      ...    |     ...      |
-    | Scenariusz 3  |     ...    |      ...    |     ...      |
-    | Wartość średnia  |  ...    |      ...    |     ...      |
+| Scenariusz    | Algorytm I | Algorytm II | Algorytm III |
+|    :----:     |    :----:  |    :----:   |     :----:   |
+| Scenariusz 1  |  10.21 km  |   8.78 km   |    7.38 km   |
+| Scenariusz 2  |     ...    |      ...    |     ...      |
+| Scenariusz 3  |     ...    |      ...    |     ...      |
+| Wartość średnia  |  ...    |      ...    |     ...      |
 
     Na podstawie powyższej tabeli z wynikami należy wyciągnąć odpowiednie wnioski. Należy wskazać który z
     algorytmów pasuje do którego scenariusza oraz który z nich jest lepszy jeżeli uwzględniać tylko średnią odległość.
