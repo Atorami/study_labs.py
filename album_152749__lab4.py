@@ -48,3 +48,26 @@ def post_line(arr):
             que_arr.append(person[0][0])
     return que_arr
 
+######################################################
+# Zadanie 3:
+    # Zaimplementuj algorytm porządkowania stosu za pomocą stosu pomocniczego zgodnie z
+    # pseudokodem przedstawionym na wykładzie.
+######################################################
+
+
+def double_stack(arr):
+    left_stack = [min(arr)]
+    right_stack = [max(arr)]
+
+    arr.remove(min(arr))
+    arr.remove(max(arr))
+
+    for i in arr:
+
+        while left_stack[-1] >= i:
+            right_stack.append(left_stack.pop())
+        while right_stack[-1] < i:
+            left_stack.append(right_stack.pop())
+        left_stack.append(i)
+
+    return left_stack + right_stack[::-1]
