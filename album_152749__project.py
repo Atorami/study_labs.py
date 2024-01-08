@@ -28,11 +28,10 @@ def script_3():
 
 def scene_1(data):
     scene_data = []
-    print(data)
-    for i in len(data[1]):
+
+    for i in data[2]:
         floor_counter = 0
         last_floor = 0
-        print(scene_data)
 
         for j in range(data[0]):
             start, finish = i
@@ -41,15 +40,34 @@ def scene_1(data):
             floor_counter += (lift_back + lift_next)
             last_floor = finish
 
-        scene_data.append(floor_counter/1000)
+        scene_data.append(round(floor_counter * data[1] / 1000, 2))
+    return scene_data
+
+
+def scene_2(data):
+    scene_data = []
+
+    for i in data[2]:
+        floor_counter = 0
+        for j in range(data[0]):
+            start, finish = i
+            floor_counter += start + abs(start - finish) + finish
+
+        scene_data.append(round(floor_counter * data[1] / 1000, 2))
+
     return scene_data
 
 
 def main():
     repeat_num = 1000
     floor_height = 2.8
+    scenes_data = [repeat_num, floor_height, [script_1(), script_2(), script_3()]]
 
-    scene_1_data = [repeat_num, [script_1(), script_2(), script_3()]]
-    scene_1(scene_1_data)
+    scene_1(scenes_data)
+    scene_2(scenes_data)
+
+    print(scene_1(scenes_data))
+    print(scene_2(scenes_data))
+
 
 main()

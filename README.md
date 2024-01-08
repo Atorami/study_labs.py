@@ -78,7 +78,7 @@
 
     Przy takim losowaniu w tym algorytmie winda będzie zatrzymywać się na następujących piętrach:
 
-    0 → 7 → 2 → 5 → 6 → 1
+``` 0 → 7 → 2 → 5 → 6 → 1 ```
 
     Przebytą odległość liczymy jako różnice bezwzględną pomiędzy kolejnymi piętrami razy wysokość kondygnacji, czyli:
 
@@ -89,11 +89,11 @@
     Rozpatrzymy ten sam przykład co dla poprzedniego algorytmu:
     Przy takim losowaniu w tym algorytmie winda będzie zatrzymywać się na następujących piętrach:
 
-    0 → 7 → 0 → 2 → 5 → 0 → 6 → 1 → 0
+``` 0 → 7 → 0 → 2 → 5 → 0 → 6 → 1 → 0 ```
 
     Czyli pokonana odległość będzie wynosić:
 
-    (7 + 7 + 2 + 3 + 5 + 6 + 5 + 1) × 2.8 = 100.8
+```(7 + 7 + 2 + 3 + 5 + 6 + 5 + 1) × 2.8 = 100.8```
 
     Czyli korzystając z tego algorytmu winda pokona odległość 100.8m.
     (III) Algorytm autorski - należy opracować własny algorytm poruszania się windy oraz opisać go za pomocą schematu blokowego oraz słownie.
