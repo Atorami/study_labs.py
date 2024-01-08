@@ -1,4 +1,5 @@
 import random
+from tabulate import tabulate
 
 
 def script_1():
@@ -81,13 +82,17 @@ def main():
     scene_3_data = scene_3(scene_input_data)
     scene_output_data = [scene_1_data, scene_2_data, scene_3_data]
 
+    headers = ["Algorithm I", "Algorithm II", "Algorithm III", "Average value"]
+    table_data = []
+
     for i in range(len(scene_output_data)):
-        print(f'Scene {i+1} :')
-        average_val = 0
+        row_data = [f"Scene {i+1}"]
         for j in range(len(scene_output_data[i])):
-            average_val += scene_output_data[i][j]
-            print(f'Algorithm {j+1} : {scene_output_data[i][j]} km')
-        print(f'Scene {i+1} average value : {round(average_val/3, 2)} km')
+            row_data.append(f"{scene_output_data[i][j]:.2f} km")
+        row_data.append(f"{round(sum(scene_output_data[i])/3, 2)} km")
+        table_data.append(row_data)
+
+    print(tabulate(table_data, headers=headers, tablefmt="grid"))
 
 
 main()
