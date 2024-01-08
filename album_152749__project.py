@@ -58,16 +58,36 @@ def scene_2(data):
     return scene_data
 
 
+# elevator back to middle of the building after each lifting
+def scene_3(data):
+    scene_data = []
+    for i in data[2]:
+        floor_counter = 0
+        middle_floor = 5
+        for j in range(data[0]):
+            start, finish = i
+            floor_counter += abs(start - finish) + abs(middle_floor - finish)
+        scene_data.append(round(floor_counter * data[1] / 1000, 2))
+
+    return scene_data
+
+
 def main():
     repeat_num = 1000
     floor_height = 2.8
-    scenes_data = [repeat_num, floor_height, [script_1(), script_2(), script_3()]]
+    scene_input_data = [repeat_num, floor_height, [script_1(), script_2(), script_3()]]
+    scene_1_data = scene_1(scene_input_data)
+    scene_2_data = scene_2(scene_input_data)
+    scene_3_data = scene_3(scene_input_data)
+    scene_output_data = [scene_1_data, scene_2_data, scene_3_data]
 
-    scene_1(scenes_data)
-    scene_2(scenes_data)
-
-    print(scene_1(scenes_data))
-    print(scene_2(scenes_data))
+    for i in range(len(scene_output_data)):
+        print(f'Scene {i+1} :')
+        average_val = 0
+        for j in range(len(scene_output_data[i])):
+            average_val += scene_output_data[i][j]
+            print(f'Algorithm {j+1} : {scene_output_data[i][j]} km')
+        print(f'Scene {i+1} average value : {round(average_val/3, 2)} km')
 
 
 main()
