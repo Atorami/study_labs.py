@@ -82,15 +82,21 @@ def main():
     scene_3_data = scene_3(scene_input_data)
     scene_output_data = [scene_1_data, scene_2_data, scene_3_data]
 
-    headers = ["Algorithm I", "Algorithm II", "Algorithm III", "Average value"]
+    headers = ["Algorithm I", "Algorithm II", "Algorithm III"]
     table_data = []
 
     for i in range(len(scene_output_data)):
         row_data = [f"Scene {i+1}"]
         for j in range(len(scene_output_data[i])):
             row_data.append(f"{scene_output_data[i][j]:.2f} km")
-        row_data.append(f"{round(sum(scene_output_data[i])/3, 2)} km")
         table_data.append(row_data)
+
+    average_row = ["Average"]
+    for i in range(len(headers)):
+        average_row.append(
+            f"{sum(scene_output_data[j][i] for j in range(len(scene_output_data))) / len(scene_output_data):.2f} km")
+
+    table_data.append(average_row)
 
     print(tabulate(table_data, headers=headers, tablefmt="grid"))
 
