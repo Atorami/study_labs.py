@@ -47,13 +47,14 @@ def scene_1(data):
 
 def scene_2(data):
     scene_data = []
+    current_floor = 0
 
     for i in data[2]:
         floor_counter = 0
         for j in range(data[0]):
             start, finish = i
-            floor_counter += start + abs(start - finish) + finish
-
+            floor_counter += abs(current_floor - start) + abs(start - finish) + finish
+            current_floor = 0
         scene_data.append(round(floor_counter * data[1] / 1000, 2))
 
     return scene_data
@@ -67,7 +68,7 @@ def scene_3(data):
         middle_floor = 5
         for j in range(data[0]):
             start, finish = i
-            floor_counter += abs(start - finish) + abs(middle_floor - finish)
+            floor_counter += abs(start - finish) + abs(finish - middle_floor)
         scene_data.append(round(floor_counter * data[1] / 1000, 2))
 
     return scene_data
