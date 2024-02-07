@@ -127,3 +127,20 @@ def find_collision():
 ########################################################
 ########################################################
 
+
+def key_ex_checker(T, key):
+    idx = hash(key) % len(T)
+
+    if T[idx] and T[idx][0] == key:
+        return T[idx][1]
+
+    # collision
+
+    for idx in range(0, len(T)-1):
+        if not T[idx]:
+            return None
+        elif T[idx] and T[idx][0] == key:
+            return T[idx][1]
+
+    print("Value not found")
+    return None
